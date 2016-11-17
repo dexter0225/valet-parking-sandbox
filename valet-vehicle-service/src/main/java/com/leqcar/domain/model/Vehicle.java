@@ -4,63 +4,44 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by jongtenerife on 09/11/2016.
  */
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Vehicle {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String make;
-
-    private String model;
-
-    private int year;
-
-    private String type;
-
-    private String color;
-
-    private int mileage;
-
-    public Vehicle(Long id, String make, String model, int year, String type, String color, int mileage) {
-        this.id = id;
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.type = type;
-        this.color = color;
-        this.mileage = mileage;
+    private String plateNo;
+    
+    public Vehicle() {
+    	
+    }
+    
+    public Vehicle(String plateNo) {
+    	this.plateNo = plateNo;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getMake() {
-        return make;
-    }
+    public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getModel() {
-        return model;
-    }
+	public String getPlateNo() {
+		return plateNo;
+	}
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getMileage() {
-        return mileage;
-    }
+	public void setPlateNo(String plateNo) {
+		this.plateNo = plateNo;
+	}
+    
+    
 }
